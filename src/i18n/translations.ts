@@ -22,6 +22,13 @@ export type SkillGroupContent = {
   description: string;
 };
 
+export type EducationContent = {
+  degree: string;
+  institution: string;
+  period: string;
+  description: string;
+};
+
 export type TranslationShape = {
   meta: {
     title: string;
@@ -53,6 +60,10 @@ export type TranslationShape = {
     experienceValue: string;
     focusLabel: string;
     focusValue: string;
+  };
+  education: {
+    heading: string;
+    items: EducationContent[];
   };
   skills: {
     headingPrefix: string;
@@ -151,6 +162,18 @@ export const translations: Record<Locale, TranslationShape> = {
       experienceValue: "3+ years",
       focusLabel: "Focus",
       focusValue: "Backend & web platforms",
+    },
+    education: {
+      heading: "Education",
+      items: [
+        {
+          degree: "3rd grade Web Design",
+          institution: "School of Art, Design, Graphics and Apparel Zabok",
+          period: "2024 - 2026",
+          description:
+            "Went on national software competitions and won many awards.",
+        },
+      ],
     },
     skills: {
       headingPrefix: "What I work with",
@@ -321,6 +344,18 @@ export const translations: Record<Locale, TranslationShape> = {
       experienceValue: "3+ godine",
       focusLabel: "Fokus",
       focusValue: "Backend i web platforme",
+    },
+    education: {
+      heading: "Obrazovanje",
+      items: [
+        {
+          degree: "Treći razred Web Diajn",
+          institution: "Škola za umjetnost, dizajn, grafiku i odjeću Zabok",
+          period: "2024 - 2026",
+          description:
+            "Išao na državna natjecanja u razvoju softvera i osvojio mnoge nagrade.",
+        },
+      ],
     },
     skills: {
       headingPrefix: "Čime se bavim",
