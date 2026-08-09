@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
 import { gsap } from "gsap";
-import { PhArrowDown } from "@phosphor-icons/vue";
+import { PhArrowDown, PhDownloadSimple, PhX } from "@phosphor-icons/vue";
 import { heroIntro, profile } from "../data/content";
 import { useI18n } from "../i18n";
 import HeroCanvas from "./three/HeroCanvas.vue";
@@ -12,6 +12,19 @@ const heroRef = ref<HTMLElement | null>(null);
 const glowRef = ref<HTMLElement | null>(null);
 const glowRightRef = ref<HTMLElement | null>(null);
 const showCanvas = ref(false);
+const showResume = ref(false);
+
+function openResume() {
+  showResume.value = true;
+}
+
+function closeResume() {
+  showResume.value = false;
+}
+
+function handleResumeKeydown(e: KeyboardEvent) {
+  if (e.key === "Escape") closeResume();
+}
 
 let ctx: gsap.Context | undefined;
 let quickX: ((value: number) => void) | undefined;
@@ -38,10 +51,11 @@ onMounted(() => {
   desktopQuery = window.matchMedia("(min-width: 768px)");
   showCanvas.value = desktopQuery.matches;
   desktopQuery.addEventListener("change", handleDesktopQueryChange);
+  window.addEventListener("keydown", handleResumeKeydown);
 
   ctx = gsap.context(() => {
     if (reduceMotion) {
-      gsap.set([".hero-word-inner", ".hero-fade"], { opacity: 1, y: 0, yPercent: 0 });
+      gsap.set([".hero-word-inner", ".hero-fade", ".hero-fade-text"], { opacity: 1, y: 0, yPercent: 0 });
       gsap.set(".hero-name", { opacity: 1, filter: "blur(0px)" });
       gsap.set([glowRef.value, glowRightRef.value], { opacity: 1 });
       return;
@@ -94,6 +108,12 @@ onMounted(() => {
         { yPercent: 0, duration: 1.4, stagger: 0.15, ease: "power4.out" },
         0.55,
       )
+      .fromTo(
+        ".hero-fade-text",
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out" },
+        0.85,
+      )
       .fromTo(".hero-fade", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.16 }, "-=0.65");
   }, heroRef.value);
 });
@@ -101,6 +121,7 @@ onMounted(() => {
 onUnmounted(() => {
   heroRef.value?.removeEventListener("pointermove", handlePointerMove);
   desktopQuery?.removeEventListener("change", handleDesktopQueryChange);
+  window.removeEventListener("keydown", handleResumeKeydown);
   ctx?.revert();
 });
 </script>
@@ -149,11 +170,11 @@ onUnmounted(() => {
             </span>
           </h1>
 
-          <p class="hero-fade mt-8 max-w-xl font-mono text-xs uppercase tracking-[0.22em] text-muted opacity-0 md:text-sm">
+          <p class="hero-fade-text mt-8 max-w-xl font-mono text-xs uppercase tracking-[0.22em] text-muted opacity-0 md:text-sm">
             {{ content.hero.roles.join(" · ") }}
           </p>
 
-          <p class="hero-fade mt-6 max-w-md text-base leading-relaxed text-bone-dim opacity-0 md:text-lg">
+          <p class="hero-fade-text mt-6 max-w-md text-base leading-relaxed text-bone-dim opacity-0 md:text-lg">
             {{ content.hero.statement }}
           </p>
 
@@ -164,13 +185,13 @@ onUnmounted(() => {
             >
               {{ content.hero.contact }}
             </a>
-            <a
-              :href="profile.resumeUrl[locale]"
-              download
+            <button
+              type="button"
               class="inline-flex items-center rounded-full border border-line px-6 py-3 text-sm font-medium text-bone transition-colors hover:border-bone-dim active:scale-[0.97]"
+              @click="openResume"
             >
-              {{ content.hero.downloadResume }}
-            </a>
+              {{ content.hero.viewResume }}
+            </button>
           </div>
         </div>
       </div>
@@ -199,5 +220,55 @@ onUnmounted(() => {
         </span>
       </a>
     </div>
+
+    <Teleport to="body">
+      <Transition
+        enter-active-class="transition duration-200 ease-out"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+        leave-active-class="transition duration-150 ease-in"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+      >
+        <div
+          v-if="showResume"
+          class="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-4 backdrop-blur-sm md:p-10"
+          @click="closeResume"
+        >
+          <div
+            class="relative flex h-full max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-line bg-surface-2 shadow-2xl"
+            @click.stop
+          >
+            <div class="flex items-center justify-between gap-4 border-b border-line px-5 py-4">
+              <span class="font-mono text-xs uppercase tracking-[0.18em] text-muted">
+                {{ profile.name }} — {{ content.hero.viewResume }}
+              </span>
+              <div class="flex items-center gap-2">
+                <a
+                  :href="profile.resumeUrl[locale]"
+                  download
+                  class="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-xs font-medium text-bone-dim transition-colors hover:border-bone-dim hover:text-bone"
+                >
+                  <PhDownloadSimple :size="14" weight="bold" />
+                  {{ content.hero.downloadResume }}
+                </a>
+                <button
+                  type="button"
+                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-bone-dim transition-colors hover:border-bone-dim hover:text-bone"
+                  @click="closeResume"
+                >
+                  <PhX :size="16" weight="bold" />
+                </button>
+              </div>
+            </div>
+            <iframe
+              :src="profile.resumeUrl[locale]"
+              :title="`${profile.name} resume`"
+              class="h-full w-full flex-1 bg-bone"
+            />
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </section>
 </template>

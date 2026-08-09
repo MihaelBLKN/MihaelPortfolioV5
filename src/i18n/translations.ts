@@ -38,7 +38,9 @@ export type TranslationShape = {
     country: string;
     basedIn: string;
     contact: string;
+    viewResume: string;
     downloadResume: string;
+    resumeClose: string;
     exploreWork: string;
   };
   about: {
@@ -107,7 +109,8 @@ export const translations: Record<Locale, TranslationShape> = {
   en: {
     meta: {
       title: "Mihael Pleško - Full Stack Developer",
-      description: "Mihael Pleško - Full Stack Developer building web products end to end.",
+      description:
+        "Mihael Pleško - Full Stack Developer building web products end to end.",
     },
     nav: {
       links: [
@@ -119,14 +122,20 @@ export const translations: Record<Locale, TranslationShape> = {
       contact: "Contact",
     },
     hero: {
-      roles: ["Full Stack Developer", "Backend & Systems Engineer", "Creative Developer"],
+      roles: [
+        "Full Stack Developer",
+        "Backend & Systems Engineer",
+        "Creative Developer",
+      ],
       statement:
         "I create immersive digital experiences where design, technology, and motion come together.",
       availability: "Available for selected projects",
       country: "Croatia",
       basedIn: "Based in",
       contact: "Contact",
+      viewResume: "View resume",
       downloadResume: "Download resume",
+      resumeClose: "Close",
       exploreWork: "Explore work",
     },
     about: {
@@ -149,10 +158,25 @@ export const translations: Record<Locale, TranslationShape> = {
       description:
         "I build and ship full-stack applications using modern technologies across frontend, backend, databases, and infrastructure.",
       groups: [
-        { title: "Frontend", description: "Building responsive and accessible user interfaces." },
-        { title: "Backend", description: "Creating APIs and server-side logic that power applications." },
-        { title: "Databases", description: "Designing schemas and working with databases for reliable storage." },
-        { title: "Infrastructure", description: "Containerizing applications and deploying modern infrastructure." },
+        {
+          title: "Frontend",
+          description: "Building responsive and accessible user interfaces.",
+        },
+        {
+          title: "Backend",
+          description:
+            "Creating APIs and server-side logic that power applications.",
+        },
+        {
+          title: "Databases",
+          description:
+            "Designing schemas and working with databases for reliable storage.",
+        },
+        {
+          title: "Infrastructure",
+          description:
+            "Containerizing applications and deploying modern infrastructure.",
+        },
       ],
     },
     projects: {
@@ -167,7 +191,8 @@ export const translations: Record<Locale, TranslationShape> = {
         {
           name: "Luaxis",
           tech: "GoLang, Containerd, Luau, Zap, Three.js",
-          problem: "There were no practical Roblox courses with an in-browser Luau runtime.",
+          problem:
+            "There were no practical Roblox courses with an in-browser Luau runtime.",
           architecture:
             "Built on a structure with GoLang and backends designed to work within distributed systems, as well docker for the infrastructure.",
           stats: [
@@ -178,21 +203,14 @@ export const translations: Record<Locale, TranslationShape> = {
         {
           name: "Smart Academic Tutor",
           tech: "TypeScript, Node.js, Kafka, Firebase, OpenAI API",
-          problem: "Online learning platforms lacked real-time feedback, and pricing was too high.",
+          problem:
+            "Online learning platforms lacked real-time feedback, and pricing was too high.",
           architecture:
             "A microservices architecture with a central recommendation engine that analyzes student interactions to provide personalized learning paths.",
           stats: [
             { value: "+30%", label: "Student engagement" },
             { value: "+20%", label: "Learning outcomes" },
           ],
-        },
-        {
-          name: "This portfolio",
-          tech: "ThreeJS, Vue, TypeScript, TailwindCSS, Vite, GSAP",
-          problem: "Look how this portfolio is built.",
-          architecture:
-            "VueJS frontend with ThreeJS for 3D, GSAP for animations, and TailwindCSS for styling. Vite is used for bundling and development.",
-          stats: [],
         },
       ],
     },
@@ -261,7 +279,8 @@ export const translations: Record<Locale, TranslationShape> = {
   hr: {
     meta: {
       title: "Mihael Pleško - Full Stack Developer",
-      description: "Mihael Pleško - Full Stack Developer koji izrađuje web proizvode od početka do kraja.",
+      description:
+        "Mihael Pleško - Full Stack Developer koji izrađuje web proizvode od početka do kraja.",
     },
     nav: {
       links: [
@@ -273,13 +292,20 @@ export const translations: Record<Locale, TranslationShape> = {
       contact: "Kontakt",
     },
     hero: {
-      roles: ["Full Stack Developer", "Backend i sistemski inženjer", "Kreativni developer"],
-      statement: "Stvaram digitalna iskustva u kojima se dizajn, tehnologija i pokret spajaju u jedinstvenu cjelinu.",
+      roles: [
+        "Full Stack Developer",
+        "Backend i sistemski inženjer",
+        "Kreativni developer",
+      ],
+      statement:
+        "Stvaram digitalna iskustva u kojima se dizajn, tehnologija i pokret spajaju u jedinstvenu cjelinu.",
       availability: "Dostupan za odabrane projekte",
       country: "Hrvatske",
       basedIn: "Iz",
       contact: "Kontakt",
+      viewResume: "Pogledaj CV",
       downloadResume: "Preuzmi CV",
+      resumeClose: "Zatvori",
       exploreWork: "Pogledaj radove",
     },
     about: {
@@ -302,10 +328,26 @@ export const translations: Record<Locale, TranslationShape> = {
       description:
         "Izrađujem i lansiram full-stack aplikacije koristeći moderne tehnologije kroz frontend, backend, baze podataka i infrastrukturu.",
       groups: [
-        { title: "Frontend", description: "Izrada responzivnih i pristupačnih korisničkih sučelja." },
-        { title: "Backend", description: "Stvaranje API-ja i logike na strani servera koja pokreće aplikacije." },
-        { title: "Baze podataka", description: "Dizajniranje shema i rad s bazama podataka za pouzdano skladištenje." },
-        { title: "Infrastruktura", description: "Kontejnerizacija aplikacija i implementacija moderne infrastrukture." },
+        {
+          title: "Frontend",
+          description:
+            "Izrada responzivnih i pristupačnih korisničkih sučelja.",
+        },
+        {
+          title: "Backend",
+          description:
+            "Stvaranje API-ja i logike na strani servera koja pokreće aplikacije.",
+        },
+        {
+          title: "Baze podataka",
+          description:
+            "Dizajniranje shema i rad s bazama podataka za pouzdano skladištenje.",
+        },
+        {
+          title: "Infrastruktura",
+          description:
+            "Kontejnerizacija aplikacija i implementacija moderne infrastrukture.",
+        },
       ],
     },
     projects: {
@@ -320,7 +362,8 @@ export const translations: Record<Locale, TranslationShape> = {
         {
           name: "Luaxis",
           tech: "GoLang, Containerd, Kubernetes, Luau, Zap, Three.js",
-          problem: "Nije postojao praktičan Roblox tečaj s in-browser Luau runtimeom.",
+          problem:
+            "Nije postojao praktičan Roblox tečaj s in-browser Luau runtimeom.",
           architecture:
             "Izgrađeno na strukturi s GoLangom i backendima dizajniranim da rade unutar distribuiranih sustava, kao i docker za infrastrukturu.",
           stats: [
@@ -331,21 +374,14 @@ export const translations: Record<Locale, TranslationShape> = {
         {
           name: "Smart Academic Tutor",
           tech: "TypeScript, Node.js, Kafka, Firebase, OpenAI API",
-          problem: "Platforme za online učenje nisu imale povratne informacije u stvarnom vremenu, a cijene su bile previsoke.",
+          problem:
+            "Platforme za online učenje nisu imale povratne informacije u stvarnom vremenu, a cijene su bile previsoke.",
           architecture:
             "Mikroservisna arhitektura s centralnim sustavom preporuka koji analizira interakcije studenata radi personaliziranih putova učenja.",
           stats: [
             { value: "+30%", label: "Angažiranost studenata" },
             { value: "+20%", label: "Ishodi učenja" },
           ],
-        },
-        {
-          name: "Ovaj portfolio",
-          tech: "ThreeJS, Vue, TypeScript, TailwindCSS, Vite, GSAP",
-          problem: "Pogledaj kako je napravljen ovaj portfolio.",
-          architecture:
-            "VueJS frontend s ThreeJS-om za 3D, GSAP-om za animacije i TailwindCSS-om za stiliziranje. Vite se koristi za bundling i razvoj.",
-          stats: [],
         },
       ],
     },
@@ -401,7 +437,8 @@ export const translations: Record<Locale, TranslationShape> = {
       successTitle: "Hvala — vaša poruka je na putu.",
       successSubtitle: "Javit ću se u roku od dan ili dva.",
       errorGeneric: "Nešto je pošlo po zlu. Pokušajte ponovno.",
-      errorNetwork: "Greška u mreži. Pokušajte ponovno ili mi pišite direktno na email.",
+      errorNetwork:
+        "Greška u mreži. Pokušajte ponovno ili mi pišite direktno na email.",
     },
     footer: {
       builtWith: "Izrađeno u Vue i Tailwindu.",
