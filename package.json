@@ -1,0 +1,33 @@
+{
+  "name": "mihaelportfoliov5",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/bodoni-moda": "^5.3.0",
+    "@fontsource/geist-mono": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "@fontsource/outfit": "^5.3.0",
+    "@phosphor-icons/vue": "^2.2.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@tresjs/core": "^5.8.3",
+    "gsap": "^3.15.0",
+    "tailwindcss": "^4.3.3",
+    "three": "^0.185.1",
+    "vue": "^3.5.40"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0",
+    "vue-tsc": "^3.3.8"
+  }
+}
