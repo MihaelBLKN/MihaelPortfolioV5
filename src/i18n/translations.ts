@@ -8,8 +8,6 @@ export type ProjectContent = {
   problem: string;
   architecture: string;
   stats: ProjectStat[];
-  demoUrl: string;
-  isDemo: boolean;
 };
 
 export type ExperienceContent = {
@@ -66,8 +64,7 @@ export type TranslationShape = {
     description: string;
     problemLabel: string;
     architectureLabel: string;
-    viewDemo: string;
-    viewProduct: string;
+    viewImage: string;
     items: ProjectContent[];
   };
   experience: {
@@ -165,8 +162,7 @@ export const translations: Record<Locale, TranslationShape> = {
         "A couple of platforms I've built and shipped, from an in-browser Roblox coding runtime to an AI-driven tutoring product.",
       problemLabel: "Problem",
       architectureLabel: "Architecture",
-      viewDemo: "View demo",
-      viewProduct: "View product",
+      viewImage: "View image",
       items: [
         {
           name: "Luaxis",
@@ -175,11 +171,9 @@ export const translations: Record<Locale, TranslationShape> = {
           architecture:
             "Built on a structure with GoLang and backends designed to work within distributed systems, as well docker for the infrastructure.",
           stats: [
-            { value: "100+", label: "Concurrent users" },
+            { value: "100+", label: "Capacity of runtime users" },
             { value: "99.98%", label: "Uptime" },
           ],
-          demoUrl: "https://luaxis.xyz/",
-          isDemo: false,
         },
         {
           name: "Smart Academic Tutor",
@@ -191,8 +185,6 @@ export const translations: Record<Locale, TranslationShape> = {
             { value: "+30%", label: "Student engagement" },
             { value: "+20%", label: "Learning outcomes" },
           ],
-          demoUrl: "http://207.180.243.164:6967/smart-academic-tutor/",
-          isDemo: true,
         },
         {
           name: "This portfolio",
@@ -201,8 +193,6 @@ export const translations: Record<Locale, TranslationShape> = {
           architecture:
             "VueJS frontend with ThreeJS for 3D, GSAP for animations, and TailwindCSS for styling. Vite is used for bundling and development.",
           stats: [],
-          demoUrl: "http://207.180.243.164:6967/smart-academic-tutor/",
-          isDemo: false,
         },
       ],
     },
@@ -325,8 +315,7 @@ export const translations: Record<Locale, TranslationShape> = {
         "Nekoliko platformi koje sam izgradio i objavio, od in-browser Roblox coding runtimea do AI-vođenog proizvoda za podučavanje.",
       problemLabel: "Problem",
       architectureLabel: "Arhitektura",
-      viewDemo: "Pogledaj demo",
-      viewProduct: "Pogledaj proizvod",
+      viewImage: "Pogledaj sliku",
       items: [
         {
           name: "Luaxis",
@@ -335,11 +324,9 @@ export const translations: Record<Locale, TranslationShape> = {
           architecture:
             "Izgrađeno na strukturi s GoLangom i backendima dizajniranim da rade unutar distribuiranih sustava, kao i docker za infrastrukturu.",
           stats: [
-            { value: "100+", label: "Istovremenih korisnika" },
+            { value: "100+", label: "Kapacitet korisnika runtime-a" },
             { value: "99.98%", label: "Dostupnost" },
           ],
-          demoUrl: "https://luaxis.xyz/",
-          isDemo: false,
         },
         {
           name: "Smart Academic Tutor",
@@ -351,8 +338,6 @@ export const translations: Record<Locale, TranslationShape> = {
             { value: "+30%", label: "Angažiranost studenata" },
             { value: "+20%", label: "Ishodi učenja" },
           ],
-          demoUrl: "http://207.180.243.164:6967/smart-academic-tutor/",
-          isDemo: true,
         },
         {
           name: "Ovaj portfolio",
@@ -361,8 +346,6 @@ export const translations: Record<Locale, TranslationShape> = {
           architecture:
             "VueJS frontend s ThreeJS-om za 3D, GSAP-om za animacije i TailwindCSS-om za stiliziranje. Vite se koristi za bundling i razvoj.",
           stats: [],
-          demoUrl: "http://207.180.243.164:6967/smart-academic-tutor/",
-          isDemo: false,
         },
       ],
     },

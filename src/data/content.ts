@@ -2,11 +2,16 @@ export const profile = {
   name: "Mihael Pleško",
   location: "Krapinske Toplice, Croatia",
   email: "mihahrv@pm.me",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: {
+    en: "/resume/mihael-plesko-resume-en.pdf",
+    hr: "/resume/mihael-plesko-resume-hr.pdf",
+  },
   social: {
     linkedin: "https://www.linkedin.com/in/mihael-ple%C5%A1ko-5a612233a/",
   },
 };
+
+export const projectImages = ["/projects/luaxis.png", "/projects/smartacademictutor.png", "/projects/portfolio.png"];
 
 export const contactForm = {
   web3FormsAccessKey: "4f6fb698-1164-49d1-b803-bb43ba7f1359",
@@ -17,7 +22,7 @@ export const heroIntro = {
 };
 
 export const techStack = [
-  "go", "typescript", "lua", "python", "nodedotjs",
+  "go", "typescript", "lua", "python", "php", "nodedotjs",
   "vuedotjs", "react", "html5", "css", "tailwindcss",
   "postgresql", "apachecassandra", "mysql", "firebase", "mongodb",
   "kubernetes", "docker", "linux",
@@ -38,6 +43,7 @@ export const skillGroupItems: SkillItem[][] = [
     { name: "TypeScript", slug: "typescript" },
     { name: "Node.js", slug: "nodedotjs" },
     { name: "Python", slug: "python" },
+    { name: "PHP", slug: "php" },
     { name: "Luau", slug: "lua" },
   ],
   [

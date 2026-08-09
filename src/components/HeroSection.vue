@@ -6,7 +6,7 @@ import { heroIntro, profile } from "../data/content";
 import { useI18n } from "../i18n";
 import HeroCanvas from "./three/HeroCanvas.vue";
 
-const { content } = useI18n();
+const { content, locale } = useI18n();
 
 const heroRef = ref<HTMLElement | null>(null);
 const glowRef = ref<HTMLElement | null>(null);
@@ -165,7 +165,8 @@ onUnmounted(() => {
               {{ content.hero.contact }}
             </a>
             <a
-              :href="profile.resumeUrl"
+              :href="profile.resumeUrl[locale]"
+              download
               class="inline-flex items-center rounded-full border border-line px-6 py-3 text-sm font-medium text-bone transition-colors hover:border-bone-dim active:scale-[0.97]"
             >
               {{ content.hero.downloadResume }}
