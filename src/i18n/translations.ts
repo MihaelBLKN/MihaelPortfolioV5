@@ -349,7 +349,7 @@ export const translations: Record<Locale, TranslationShape> = {
       heading: "Obrazovanje",
       items: [
         {
-          degree: "Treći razred Web Diajn",
+          degree: "Treći razred Web Dizajn",
           institution: "Škola za umjetnost, dizajn, grafiku i odjeću Zabok",
           period: "2024 - 2026",
           description:
